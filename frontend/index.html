@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blindfastener | Part finder</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header><div class="brand">blind<span>fastener</span></div><div class="tag">AIRCRAFT FASTENER DATABASE</div></header>
+<main>
+<div class="eyebrow">Part finder</div><h1>Find the right record.</h1>
+<p class="muted">Search your fastener database, review its details, then check substrate compatibility.</p>
+<section class="card" aria-labelledby="search-title">
+<div class="topline"><h2 id="search-title">1. Find a fastener</h2><span class="pill" id="record-count"></span></div>
+<form id="search-form" style="margin-top:20px">
+<div class="formline"><div class="field part"><label for="part">Part number</label>
+<select id="part" required disabled><option value="">Loading part numbers…</option></select></div>
+<button type="submit">Find fastener</button></div>
+<div class="hint">Select a part number, then click Find fastener.</div>
+</form>
+<div id="search-status" role="status" aria-live="polite"></div>
+<div id="matches" class="matchlist" aria-label="Matching fasteners"></div>
+</section>
+<section id="details" hidden aria-labelledby="detail-title">
+<div class="topline" style="margin-top:30px"><div><div class="eyebrow">Selected fastener</div><h2 id="detail-title" style="margin-top:8px"></h2><p id="detail-meta" class="muted"></p></div><span class="pill">Database record</span></div>
+<div id="result-groups"></div>
+<section class="card" aria-labelledby="galvanic-title"><h2 id="galvanic-title">2. Check galvanic compatibility</h2>
+<p class="muted">Add up to five substrates and check all combinations together.</p>
+<form id="galvanic-form" style="margin-top:18px">
+<div class="field part"><label for="compatibility-mode">Whether this fastener is used for electrical bonding purpose</label>
+<select id="compatibility-mode" required><option value="no">No</option><option value="yes">Yes</option></select></div>
+<div id="mode-notice" class="hint"></div>
+<div id="substrate-rows"></div>
+<div class="compat-actions"><button id="add-substrate" type="button" aria-label="Add substrate">+ Add substrate</button>
+<span id="substrate-count" class="muted"></span><button type="submit">Check compatibility</button></div>
+</form>
+<div id="galvanic-result" role="status" aria-live="polite"></div>
+<div id="pair-result" class="notice compatibility-results" role="status" aria-live="polite" hidden></div>
+</section></section>
+<p class="foot">Source: configured Excel workbook · Empty fields, component rows and groups are hidden.</p>
+</main>
+<script src="/display.js" defer></script>
+<script src="/app.js" defer></script>
+</body>
+</html>
